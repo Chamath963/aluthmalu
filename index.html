@@ -3,21 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>අලුත් මාලු.lk</title>
+    <title>අලුත් මාලු.lk - The Best Fresh Fish Online</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
     <header>
+        <div class="top-bar">
+            <div class="order-message">
+                <span>🔥 Order Fresh Fish Now! </span>
+                <img src="images/phone-icon.png" alt="Phone Icon" class="phone-icon">
+                <span>+94 70 422 0185</span>
+            </div>
+            <a href="https://wa.me/94704220185" class="contact-button">Contact Us</a>
+        </div>
         <div class="brand-name">අලුත් මාලු.lk</div>
-        <div class="description">අලුත් මාලු දැන් ඔබේ ගේ දොරකඩටම...!</div>
+        <div class="description">Fresh fish delivered to your doorstep!  අලුත් මාලු ඔබගේ ගේ දොරකඩටම !</div>
     </header>
 
-    <section class="fish-gallery">
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Catch the Best Fish, Straight from the Ocean</h1>
+            <p>Order your favorite seafood online and enjoy the freshest catch from local fishermen.</p>
+            <a href="#fish-gallery" class="cta-button">Browse Fish Selection</a>
+        </div>
+    </section>
+
+    <section class="fish-gallery" id="fish-gallery">
         <div class="fish-card" onclick="showFishInfo('tuna')">
             <img src="images/salmon.jpg" alt="Salmon">
             <h3>tuna/kelawalla/කෙලවල්ලා</h3>
         </div>
-        <div class="fish-card" onclick="showFishInfo('tuna')">
+        <div class="fish-card" onclick="showFishInfo('sailfish')">
             <img src="images/tuna.jpg" alt="Tuna">
             <h3>sailfish/thalapath/තලපත්</h3>
         </div>
@@ -72,7 +89,7 @@
         <div class="fish-card" onclick="showFishInfo('yellowfin')">
             <img src="images/yellowfin.jpg" alt="Yellowfin Tuna">
             <h3>Cuttlefish /dalla/දැල්ලා</h3>
-       
+        </div>
     </section>
 
     <footer>
