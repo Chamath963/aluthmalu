@@ -12,14 +12,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $fish = isset($_POST['fish']) ? htmlspecialchars($_POST['fish']) : '';
     $weight = isset($_POST['weight']) ? htmlspecialchars($_POST['weight']) : '';
 
-    // Validate the form data (optional, but recommended)
+    // Validate the form data
     if (empty($name) || empty($mobile) || empty($address) || empty($town) || empty($fish) || empty($weight)) {
         echo "All fields are required!";
         exit();
     }
 
     // Set up email details
-    $to = "Chamaththarupathi@gmail.com";  // Replace with your email
+    $to = "chamaththarupathi@gmail.com";  // Your Gmail address
     $subject = "New Fish Order";
     $message = "New order details:\n";
     $message .= "Name: $name\n";
@@ -30,8 +30,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $message .= "Weight: $weight kg\n";
 
     // Proper headers for sending mail
-    $headers = "From: no-reply@aluthmalu.lk\r\n";
-    $headers .= "Reply-To: no-reply@aluthmalu.lk\r\n";
+    $headers = "From: no-reply@yourdomain.com\r\n";
+    $headers .= "Reply-To: no-reply@yourdomain.com\r\n";
     $headers .= "X-Mailer: PHP/" . phpversion();
 
     // Send the email
