@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fish Checkout</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Open+Sans:wght@400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <div class="order-message">
+                <img src="images/fish-icon.png" alt="Fish Icon">
+                Freshest Fish Delivered to You
+            </div>
+        </div>
+        <div class="hero-section">
+            <div class="hero-content">
+                <h1>Welcome to Fish Checkout</h1>
+                <p>Order fresh fish, delivered straight to your door</p>
+                <a href="#checkout-section" class="cta-button">Start Shopping</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="checkout-section">
+        <div id="fish-info">
+            <img id="fish-image" src="images/sample-fish.jpg" alt="Fish Image">
+            <h2 id="fish-name">Tuna</h2>
+            <p id="fish-description">A rich source of protein and omega-3.</p>
+            <label for="weight">Select weight (kg):</label>
+            <select id="weight" onchange="updatePrice()">
+                <option value="0.5">0.5 kg</option>
+                <option value="1">1 kg</option>
+                <option value="2">2 kg</option>
+<option value="3">3 kg</option>
+<option value="4">4 kg</option>
+<option value="5">5 kg</option>
+<option value="6">6 kg</option>
+<option value="7">7 kg</option>
+<option value="8">8 kg</option>
+<option value="9">9 kg</option>
+<option value="10">10 kg</option>
+            </select>
+            <p id="price">Price: LKR <span id="price-value">1000</span></p>
+            <p id="stock-status">In Stock</p>
+        </div>
+        <button class="cta-button" onclick="proceedToCheckout()">Proceed to Checkout</button>
+    </section>
+
+    <footer>
+        <p>© 2024 Fish Checkout. All rights reserved.</p>
+    </footer>
+
+    <a href="tel:+123456789" class="contact-button-ball">Call</a>
+
+    <script>
+        const pricePerKg = 1000; // Price per kg in LKR
+
+        // Function to update the price based on selected weight
+        function updatePrice() {
+            const weight = document.getElementById('weight').value;
+            const totalPrice = weight * pricePerKg;
+            document.getElementById('price-value').textContent = totalPrice;
+        }
+
+        // Function to redirect to user-details.html when proceeding to checkout
+        function proceedToCheckout() {
+            window.location.href = 'user-details.html';
+        }
+
+        // Initialize the price when the page loads
+        window.onload = function() {
+            updatePrice(); // Call to set the price based on the default weight
+        };
+    </script>
+</body>
+</html>
