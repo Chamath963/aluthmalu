@@ -1,76 +1,60 @@
-// Example fish data with prices and stock
+// Get the selected fish details from localStorage
+const fishName = localStorage.getItem('selectedFish');
+const fishWeight = localStorage.getItem('selectedWeight');
+const finalPrice = localStorage.getItem('finalPrice');
 
-const fishData = {
-    tuna: {name: "Tuna / Kelawalla", description: "A firm textured fish...", pricePerKg: 1500, stock: 10, img: "images/tuna.jpg"},
-    sailfish: {name: "Sailfish / Thalapath", description: "A versatile fish...", pricePerKg: 1800, stock: 5, img: "images/sailfish.jpg"},
-    mackerel: {name: "Scad / Linna", description: "A small fish with...", pricePerKg: 1200, stock: 15, img: "images/mackerel.jpg"},
-    sardine: {name: "Small Trevally / Paraw", description: "A rich flavored fish...", pricePerKg: 1000, stock: 8, img: "images/sardine.jpg"},
-    snapper: {name: "Big Trevally / Paraw", description: "Popular for grilling...", pricePerKg: 1800, stock: 5, img: "images/snapper.jpg"},
-    tilapia: {name: "Seer Fish / Thora", description: "A famous large fish...", pricePerKg: 2000, stock: 12, img: "images/tilapia.jpg"},
-    catfish: {name: "Skipjack Tuna / Balaya", description: "Great for curries...", pricePerKg: 1500, stock: 6, img: "images/catfish.jpg"},
-    grouper: {name: "Atawalla Fish", description: "Good for frying...", pricePerKg: 1600, stock: 7, img: "images/grouper.jpg"},
-    bass: {name: "Crabs / Kakuluwa", description: "Excellent seafood choice...", pricePerKg: 2200, stock: 10, img: "images/bass.jpg"},
-    halibut: {name: "Trenched Sardine / Hurulla", description: "Small fish rich in flavor...", pricePerKg: 1300, stock: 18, img: "images/halibut.jpg"},
-    marlin: {name: "Sardine / Salaya", description: "Affordable and tasty...", pricePerKg: 800, stock: 20, img: "images/marlin.jpg"},
-    barracuda: {name: "Jack Trevally / Surapara", description: "Great for BBQ...", pricePerKg: 1700, stock: 9, img: "images/barracuda.jpg"},
-    cod: {name: "Large Prawns / L. Issa", description: "Perfect for special dishes...", pricePerKg: 2500, stock: 4, img: "images/cod.jpg"},
-    trout: {name: "Small Prawns / S. Issa", description: "Perfect for appetizers...", pricePerKg: 2000, stock: 12, img: "images/trout.jpg"},
-    yellowfin: {name: "Cuttlefish / Dalla", description: "Delicious and chewy...", pricePerKg: 1800, stock: 6, img: "images/yellowfin.jpg"}
-};
+// Display the fish details in the order summary
+document.getElementById('selected-fish').textContent = fishName;
+document.getElementById('selected-weight').textContent = fishWeight;
+document.getElementById('final-price').textContent = finalPrice;
 
-// Load fish information based on the query parameter
-function loadFishInfo() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const fish = urlParams.get('fish');
-    if (fishData[fish]) {
-        document.getElementById('fish-image').src = fishData[fish].img;
-        document.getElementById('fish-name').textContent = fishData[fish].name;
-        document.getElementById('fish-description').textContent = fishData[fish].description;
-        document.getElementById('price-value').textContent = fishData[fish].pricePerKg;
-        document.getElementById('stock-status').textContent = fishData[fish].stock > 0 ? "In stock" : "Out of stock";
-    }
-}
+// Handle form submission
+document.getElementById('user-details-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the form from submitting normally
 
-function proceedToCheckout() {
-    const selectedFishName = document.getElementById('fish-name').textContent;
-    const selectedWeight = document.getElementById('weight').value;
-    const totalPrice = document.getElementById('price-value').textContent;
+    // Get user details from the form
+    const name = document.getElementById('name').value;
+    const mobile = document.getElementById('mobile').value;
+    const address = document.getElementById('address').value;
+    const town = document.getElementById('town').value;
 
-    const params = new URLSearchParams();
-    params.append('fishName', selectedFishName);
-    params.append('weight', selectedWeight);
-    params.append('price', totalPrice);
+    // Prepare the message to be sent
+    const message = `
+        📦 *New Order Received* 📦\n
+        🐟 *Fish*: ${fishName}\n
+        ⚖️ *Weight*: ${fishWeight} kg\n
+        💵 *Total Price*: LKR ${finalPrice}\n
+        👤 *Customer Name*: ${name}\n
+        📞 *Mobile*: ${mobile}\n
+        🏠 *Address*: ${address}, ${town}
+    `;
 
-    window.location.href = 'user-details.html?' + params.toString();
-}
+    // Telegram bot API details
+    const botToken = '7522262153:AAGtEdu0TDYSDpeNyC4SjbRG1XtP44qf_OY';
+    const chatId = '6336268538';
 
-// Extracting parameters from the URL
-const urlParams = new URLSearchParams(window.location.search);
-const fishName = urlParams.get('fishName');
-const weight = urlParams.get('weight');
-const price = urlParams.get('price');
-
-// Displaying the selected data
-console.log('Selected Fish Name: ' + fishName);
-console.log('Selected Weight: ' + weight);
-console.log('Total Price: ' + price);
-
-
-
-// Update the price when the weight changes
-function updatePrice() {
-    const weight = document.getElementById('weight').value;
-    const fish = new URLSearchParams(window.location.search).get('fish');
-    const price = fishData[fish].pricePerKg * weight;
-    document.getElementById('price-value').textContent = price;
-}
-
-// Proceed to the checkout form
-function proceedToCheckout() {
-    const fish = new URLSearchParams(window.location.search).get('fish');
-    const weight = document.getElementById('weight').value;
-    window.location.href = "checkout.html?fish=" + fish + "&weight=" + weight;
-}
-
-// Call the load function on page load
-window.onload = loadFishInfo;
+    // Send the message to Telegram
+    fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            chat_id: chatId,
+            text: message,
+            parse_mode: 'Markdown'
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.ok) {
+            alert('Order sent successfully!');
+        } else {
+            alert('Error sending the order. Please try again.');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Error sending the order. Please try again.');
+    });
+});
