@@ -111,7 +111,7 @@
     </header>
 
     <section id="user-details-section">
-        <form id="user-details-form" action="send_mail.php" method="POST">
+        <form id="user-details-form">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
 
@@ -124,11 +124,6 @@
             <label for="town">Town:</label>
             <input type="text" id="town" name="town" required>
 
-            <!-- Hidden inputs to pass fish data -->
-            <input type="hidden" name="fish" id="fish-input">
-            <input type="hidden" name="weight" id="weight-input">
-            <input type="hidden" name="price" id="price-input">
-
             <input type="submit" value="Confirm Order">
         </form>
     </section>
@@ -140,22 +135,7 @@
         <p>Total Price: LKR <span id="final-price"></span></p>
     </section>
 
-    <script>
-        // Get the selected fish details from localStorage
-        const fishName = localStorage.getItem('selectedFish');
-        const fishWeight = localStorage.getItem('selectedWeight');
-        const finalPrice = localStorage.getItem('finalPrice');
-
-        // Display the fish details
-        document.getElementById('selected-fish').textContent = fishName;
-        document.getElementById('selected-weight').textContent = fishWeight;
-        document.getElementById('final-price').textContent = finalPrice;
-
-        // Set hidden input values to send them with the form
-        document.getElementById('fish-input').value = fishName;
-        document.getElementById('weight-input').value = fishWeight;
-        document.getElementById('price-input').value = finalPrice;
-    </script>
+    <script src="script.js"></script>
 
 </body>
 </html>
