@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Details</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Add a soft gradient background */
+        body {
+            background: linear-gradient(135deg, #e0f7fa, #80deea);
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        /* Header Styling */
+        header {
+            background-color: #0e2a43;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+        }
+
+        /* Form Section Styling */
+        #user-details-section {
+            background-color: white;
+            padding: 40px;
+            max-width: 600px;
+            margin: 50px auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        #user-details-form label {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        #user-details-form input, 
+        #user-details-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            font-size: 1.1em;
+        }
+
+        #user-details-form input:focus, 
+        #user-details-form textarea:focus {
+            outline: none;
+            border-color: #00bfa5;
+            box-shadow: 0 0 10px rgba(0, 191, 165, 0.5);
+        }
+
+        /* Button Styling */
+        #user-details-form input[type="submit"] {
+            background-color: #008080;
+            color: white;
+            font-size: 1.2em;
+            font-weight: bold;
+            padding: 15px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        #user-details-form input[type="submit"]:hover {
+            background-color: #ff7f50;
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Order Summary Section */
+        #fish-summary-section {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 30px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        #fish-summary-section h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+
+        #fish-summary-section p {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Enter Your Details</h1>
+    </header>
+
+    <section id="user-details-section">
+        <form id="user-details-form" action="send_mail.php" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="mobile">Mobile Number:</label>
+            <input type="tel" id="mobile" name="mobile" required>
+
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" required></textarea>
+
+            <label for="town">Town:</label>
+            <input type="text" id="town" name="town" required>
+
+            <!-- Hidden inputs to pass fish data -->
+            <input type="hidden" name="fish" id="fish-input">
+            <input type="hidden" name="weight" id="weight-input">
+            <input type="hidden" name="price" id="price-input">
+
+            <input type="submit" value="Confirm Order">
+        </form>
+    </section>
+
+    <section id="fish-summary-section">
+        <h2>Order Summary</h2>
+        <p>Selected Fish: <span id="selected-fish"></span></p>
+        <p>Weight: <span id="selected-weight"></span></p>
+        <p>Total Price: LKR <span id="final-price"></span></p>
+    </section>
+
+    <script>
+        // Get the selected fish details from localStorage
+        const fishName = localStorage.getItem('selectedFish');
+        const fishWeight = localStorage.getItem('selectedWeight');
+        const finalPrice = localStorage.getItem('finalPrice');
+
+        // Display the fish details
+        document.getElementById('selected-fish').textContent = fishName;
+        document.getElementById('selected-weight').textContent = fishWeight;
+        document.getElementById('final-price').textContent = finalPrice;
+
+        // Set hidden input values to send them with the form
+        document.getElementById('fish-input').value = fishName;
+        document.getElementById('weight-input').value = fishWeight;
+        document.getElementById('price-input').value = finalPrice;
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sardine Checkout</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Open+Sans:wght@400&display=swap" rel="stylesheet">
+    <style>
+        .home-button {
+            position: absolute;
+            top: 33px;
+            left: 346px;
+            background-color: #FF0000;
+            color: white;
+            font-size: 1em;
+            font-weight: bold;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            text-decoration: none;
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+        }
+
+        .home-button:hover {
+            background-color: #ff7f50;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="home-button">Home</a>
+
+        <div class="top-bar">
+            <div class="order-message">
+                <img src="images/fish-icon.png" alt="Fish Icon">
+                Freshest Fish Delivered to Your
+            </div>
+        </div>
+        <div class="hero-section">
+            <div class="hero-content">
+                <h1>Welcome to Sardine Checkout</h1>
+                <p>Order fresh Sardines, delivered straight to your door</p>
+                <a href="#checkout-section" class="cta-button">Start Shopping</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="checkout-section">
+        <div id="fish-info">
+            <img id="fish-image" src="images/srdine.jpg" alt="Sardine Image">
+            <h2 id="fish-name">Sardine</h2>
+            <p id="fish-description">Packed with nutrients, Sardines are a perfect addition to your meals.</p>
+            <label for="weight">Select weight (kg):</label>
+            <select id="weight" onchange="updatePrice()">
+                <option value="0.5">0.5 kg</option>
+                <option value="1">1 kg</option>
+                <option value="2">2 kg</option>
+                <option value="3">3 kg</option>
+                <option value="4">4 kg</option>
+                <option value="5">5 kg</option>
+                <option value="6">6 kg</option>
+                <option value="7">7 kg</option>
+                <option value="8">8 kg</option>
+                <option value="9">9 kg</option>
+                <option value="10">10 kg</option>
+            </select>
+            <p id="price">Price: LKR <span id="price-value">500</span></p>
+            <p id="stock-status">In Stock</p>
+        </div>
+        <button class="cta-button" onclick="proceedToCheckout()">Proceed to Checkout</button>
+    </section>
+
+    <section id="payment-methods">
+        <h2>Payment Methods</h2>
+        <label for="payment-options">Select Payment Method:</label>
+        <select id="payment-options">
+            <option value="cash-on-delivery">Cash on Delivery🟢</option>
+        </select>
+    </section>
+
+    <footer>
+        <p>© 2024 Sardine Checkout. All rights reserved.</p>
+    </footer>
+
+    <a href="tel:+94704220185" class="contact-button-ball">Call</a>
+
+    <script>
+        const pricePerKg = 500; // Price per kg in LKR for Sardine
+
+        function updatePrice() {
+            const weight = document.getElementById('weight').value;
+            const totalPrice = weight * pricePerKg;
+            document.getElementById('price-value').textContent = totalPrice;
+        }
+
+        function proceedToCheckout() {
+            const fishName = document.getElementById('fish-name').textContent;
+            const fishWeight = document.getElementById('weight').value;
+            const fishPrice = document.getElementById('price-value').textContent;
+            const updatedPrice = parseInt(fishPrice) + 100;
+
+            localStorage.setItem('selectedFish', fishName);
+            localStorage.setItem('selectedWeight', fishWeight);
+            localStorage.setItem('finalPrice', updatedPrice);
+
+            window.location.href = 'user-details.html';
+        }
+
+        window.onload = function() {
+            updatePrice();
+        };
+    </script>
+</body>
+</html>

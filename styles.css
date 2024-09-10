@@ -1,0 +1,410 @@
+/* General Body Styling */
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    background: #F0F0F0;
+    color: #333;
+}
+
+/* Header Styling */
+header {
+    text-align: center;
+    padding: 0;
+    background: #0E2A43;
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Top Bar */
+.top-bar {
+    background: linear-gradient(90deg, #FF7F50, #FF9800);
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.order-message {
+    font-size: 1.2em;
+    color: #fff;
+    display: flex;
+    align-items: center;
+}
+
+.order-message img {
+    width: 20px;
+    margin: 0 10px;
+}
+
+/* Payment Methods Section Styling with Animating Vibe */
+#payment-methods {
+    margin: 20px auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 400px;
+    margin: 20px auto;
+    animation: fadeIn 1s ease-in-out;
+  
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+#payment-methods h2 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 20px;
+    animation: slideInDown 1s ease-in-out;
+}
+
+@keyframes slideInDown {
+    from {
+       transform: translateY(-100%);
+    }
+    to {
+       transform: translateY(0);
+    }
+}
+
+#payment-options {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 1.2em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #fff;
+    animation: fadeIn 1s ease-in-out;
+}
+
+#payment-options option {
+    padding: 5px;
+}
+
+
+/* Hero Section Styling */
+.hero-section {
+    background-image: url('images/fresh-fish.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.3);
+}
+
+.hero-content h1 {
+    font-size: 3em;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    background-color: #008080;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 1.2em;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.cta-button:hover {
+    background-color: #FF7F50;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Style the select element */
+#weight {
+    appearance: none; /* Removes default styling */
+    -webkit-appearance: none; /* Removes default styling for Safari */
+    -moz-appearance: none; /* Removes default styling for Firefox */
+    background-color: #fff;
+    border: 2px solid #0e2a43;
+    padding: 4px 8px;
+    border-radius: 25px;
+    font-size: 1.2em;
+    color: #0e2a43;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Style the dropdown arrow */
+#weight::after {
+    content: '';
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #0e2a43;
+    pointer-events: none;
+}
+
+/* On hover and focus */
+#weight:hover, #weight:focus {
+    border-color: #00e676;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Fish Info Section */
+#checkout-section {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    margin: 40px auto;
+    padding: 40px;
+    width: 60%;
+    text-align: center;
+}
+
+#fish-info img {
+    width: 300px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+#fish-info h2 {
+    font-size: 2em;
+    margin: 20px 0;
+    color: #008080;
+}
+
+#fish-info p {
+    font-size: 1.2em;
+}
+
+/* Footer Styling */
+footer {
+    background: #0E2A43;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: 50px;
+}
+
+/* Floating Contact Button */
+.contact-button-ball {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #008080;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 60px;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-decoration: none;
+    z-index: 1000;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-button-ball:hover {
+    background-color: #00C853;
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* Responsive Design */
+@media only screen and (max-width: 600px) {
+    .hero-content h1 {
+        font-size: 2em;
+    }
+
+    .cta-button {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+
+    #checkout-section {
+        width: 90%;
+    }
+}
+
+/* user-details.css */
+
+/* Background Styling */
+body {
+    background: linear-gradient(135deg, #e0f7fa, #80deea);
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* Header Styling */
+header {
+    background-color: #0e2a43;
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+header h1 {
+    font-size: 2.8em;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+}
+
+/* Form Section Styling */
+#user-details-section {
+    background-color: white;
+    padding: 50px 40px;
+    max-width: 700px;
+    margin: 60px auto;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#user-details-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+#user-details-form label {
+    font-size: 1.3em;
+    font-weight: 600;
+    color: #0e2a43;
+    margin-bottom: 8px;
+    display: block;
+}
+
+#user-details-form input, 
+#user-details-form textarea {
+    width: 100%;
+    padding: 15px 20px;
+    margin-bottom: 25px;
+    border: 2px solid #0e2a43;
+    border-radius: 10px;
+    font-size: 1.1em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#user-details-form input:focus, 
+#user-details-form textarea:focus {
+    outline: none;
+    border-color: #00bfa5;
+    box-shadow: 0 0 10px rgba(0, 191, 165, 0.5);
+}
+
+/* Submit Button Styling */
+#user-details-form input[type="submit"] {
+    background-color: #008080;
+    color: white;
+    font-size: 1.3em;
+    font-weight: bold;
+    padding: 15px;
+    border: none;
+    border-radius: 35px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#user-details-form input[type="submit"]:hover {
+    background-color: #ff7f50;
+    transform: scale(1.05);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Order Summary Section */
+#fish-summary-section {
+    background-color: #f9f9f9;
+    border-radius: 15px;
+    padding: 30px 25px;
+    margin: 40px auto;
+    max-width: 700px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 1s ease-out;
+}
+
+#fish-summary-section h2 {
+    font-size: 2em;
+    margin-bottom: 25px;
+    color: #0e2a43;
+}
+
+#fish-summary-section p {
+    font-size: 1.3em;
+    margin: 12px 0;
+    color: #555;
+}
+
+/* Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media only screen and (max-width: 768px) {
+    #user-details-section, 
+    #fish-summary-section {
+        padding: 30px 20px;
+        margin: 30px 10px;
+    }
+
+    header h1 {
+        font-size: 2.2em;
+    }
+
+    #user-details-form label,
+    #user-details-form input,
+    #user-details-form textarea,
+    #user-details-form input[type="submit"] {
+        font-size: 1em;
+    }
+
+    #fish-summary-section h2 {
+        font-size: 1.8em;
+    }
+
+    #fish-summary-section p {
+        font-size: 1.1em;
+    }
+}
