@@ -15,10 +15,10 @@ body {
 /* Header Styling */
 header {
     text-align: center;
-    padding: 40px 0; /* Increased padding for a more prominent look */
+    padding: 40px 0;
     background-color: #0e2a43;
     color: white;
-    width: 100%; /* Make header take full width of page */
+    width: 100%;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     position: fixed;
     top: 0;
@@ -39,7 +39,7 @@ header h1 {
     box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
     max-width: 500px;
     width: 100%;
-    margin-top: 120px; /* Push the form down so it doesn't overlap the header */
+    margin-top: 120px;
 }
 
 #user-details-section form {
